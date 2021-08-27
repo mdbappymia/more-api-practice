@@ -6,9 +6,7 @@ function loadCountry() {
 
 function showOnDom(data) {
   const allCountry = document.getElementById("all-country");
-  console.log(data);
   data.forEach((country) => {
-    // console.log(country.Slug);
     const div = document.createElement("div");
     div.innerHTML = `
     <h1>${country.Country}</h1>
@@ -18,7 +16,6 @@ function showOnDom(data) {
   });
 }
 function coronaUpdate(countryName) {
-  console.log(countryName);
   fetch(
     `https://api.covid19api.com/dayone/country/${countryName}/status/confirmed`
   )
@@ -28,7 +25,6 @@ function coronaUpdate(countryName) {
 function totalUpdate(countryArr) {
   const lastLength = countryArr.length - 1;
   const country = countryArr[lastLength];
-  console.log(country.Country);
   const coronaDetailsDiv = document.getElementById("corona-update");
 
   coronaDetailsDiv.innerHTML = `<h1>${country.Country}</h1>
