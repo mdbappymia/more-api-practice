@@ -16,9 +16,8 @@ function showOnDom(data) {
   });
 }
 function coronaUpdate(countryName) {
-  fetch(
-    `https://api.covid19api.com/dayone/country/${countryName}/status/confirmed`
-  )
+  console.log(countryName);
+  fetch(`https://api.covid19api.com/total/dayone/country/${countryName}`)
     .then((res) => res.json())
     .then((data) => totalUpdate(data));
 }
@@ -28,6 +27,6 @@ function totalUpdate(countryArr) {
   const coronaDetailsDiv = document.getElementById("corona-update");
 
   coronaDetailsDiv.innerHTML = `<h1>${country.Country}</h1>
-  <h3>Total Case:${country.Cases}</h3>
+  <h3>Total Case:${country.Confirmed}</h3>
   `;
 }
